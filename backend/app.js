@@ -7,9 +7,8 @@ require("dotenv").config();
 const connection = require("../backend/connection");
 const studentRoutes = require("../backend/routes/stud");
 
-// ✅ Allow CORS from your frontend Render domain
 app.use(cors({
-  origin: "https://student-management-dashboard-frontend.onrender.com", // replace with your real frontend URL
+  origin: "https://student-management-dashboard-frontend.onrender.com", 
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
@@ -17,7 +16,7 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// ✅ Optional: root route just to test backend
+
 app.get("/", (req, res) => {
   res.send("✅ Backend is running!");
 });
