@@ -15,7 +15,7 @@ const Manage = () => {
 
     const fetchStudent = async () => {
         try {
-            const res = await axios.get(`http://localhost:5000/api/students`);
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/students`);
             setStudents(res.data);
         } catch (error) {
             console.error(error);
@@ -24,7 +24,7 @@ const Manage = () => {
 
     const deleteStudent = async (id) => {
         try {
-            const res = await axios.delete(`http://localhost:5000/api/students/${id}`);
+            const res = await axios.delete(`${process.env.REACT_APP_API_URL}/api/students/${id}`);
             console.log("Response from server:", res.data);
             fetchStudent();
         } catch (err) {

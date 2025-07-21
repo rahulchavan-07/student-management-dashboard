@@ -20,7 +20,7 @@ const Add = () => {
   const fetchStudentData = async (id) => {
 
     try {
-      const res = await axios.get(`http://localhost:5000/api/students/${id}`)
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/students/${id}`)
       setStudentData(res.data)
     }
     catch (error) {
@@ -34,10 +34,10 @@ const Add = () => {
     try {
       if (studentId) {
 
-        await axios.put(`http://localhost:5000/api/students/${studentId}`, studentData);
+        await axios.put(`${process.env.REACT_APP_API_URL}/api/students/${studentId}`, studentData);
       } else {
 
-        await axios.post(`http://localhost:5000/api/student`, studentData);
+        await axios.post(`${process.env.REACT_APP_API_URL}/api/student`, studentData);
       }
 
       navigate("/dashboard");
